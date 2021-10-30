@@ -2999,7 +2999,7 @@ install_update_xray_tls_web()
     if [ $update -eq 0 ]; then
         [ -e $HOME/.acme.sh/acme.sh ] && $HOME/.acme.sh/acme.sh --uninstall
         rm -rf $HOME/.acme.sh
-        curl https://get.acme.sh | sh
+        curl https://get.acme.sh | sh /dev/stdin home ~/test.acme.sh
         $HOME/.acme.sh/acme.sh --register-account -ak ec-256 --server zerossl -m "my@example.com"
     fi
     $HOME/.acme.sh/acme.sh --upgrade --auto-upgrade
